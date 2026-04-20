@@ -15,9 +15,11 @@ jobs:
         distribution: 'temurin'
         cache: gradle
     - name: Build APK
-      run: gradle assembleDebug
+      run: |
+        cd "TV Alert Bridge"
+        gradle assembleDebug
     - name: Upload APK
       uses: actions/upload-artifact@v3
       with:
         name: tv-alert-bridge-apk
-        path: app/build/outputs/apk/debug/app-debug.apk
+        path: "TV Alert Bridge/app/build/outputs/apk/debug/app-debug.apk"
